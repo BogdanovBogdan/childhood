@@ -284,9 +284,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="contacts__descr underlined">
-                            Мы находимся в Москве, метро "Парк победы", в деловом центре "Парк победы", второй этаж
-                            <br> <br>
-                            по адресу ул. Василисы Кожиной, 1
+                            <?php the_field("contacts_descr") ?>
                         </div>
                     </div>
                     <div class="col-lg-6">
