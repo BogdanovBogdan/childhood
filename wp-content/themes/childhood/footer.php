@@ -12,25 +12,9 @@
             Оставьте ваш вопрос здесь
         </div>
         <form action="#">
-            <div class="reply__wrapper">
-                <div>
-                    <label for="name">Ваше имя <span>*</span></label>
-                    <input name="name" id="name" type="text" required>
-                </div>
-            </div>
-            <div class="reply__wrapper">
-                <div>
-                    <label for="mail">Email</label>
-                    <input name="mail" id="mail" type="email">
-                </div>
-                <div>
-                    <label for="phone">Ваш телефон <span>*</span></label>
-                    <input name="phone" id="phone" type="tel" required>
-                </div>
-            </div>
-            <label for="text">Ваш вопрос <span>*</span></label>
-            <textarea required name="text" id="text"></textarea>
-            <button class="minibutton">Отправить</button>
+        
+            <?php echo do_shortcode( '[contact-form-7 id="170" title="Форма для вопросов"]' ) ?>
+            
             <svg class="lds-spinner" width="65px" height="65px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;">
                 <g transform="rotate(0 50 50)">
                     <rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#013476">

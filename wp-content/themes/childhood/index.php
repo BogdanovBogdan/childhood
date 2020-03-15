@@ -20,14 +20,17 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7 offset-1">
-                                <h2 style="<?php
-                                            $color = get_field("slider_color-title");
+                                <h2 
+                                    style="<?php
+                                        $field = get_field('slider_color');
 
-                                            if ($color == "white") :
+                                        if ($field == 'white') {
                                             ?>
-                                            color: #fff;
-                                        <?php endif;
-                                        ?>" class="slider__title"><?php the_title() ?>
+                                                color: #fff
+                                            <?php
+                                        }
+                                        ?>
+                                    "class="slider__title"><?php the_title(); ?>
                                 </h2>
 
                                 <?php
@@ -105,25 +108,25 @@
         <div class="toys__wrapper">
 
             <?php
-            $posts = get_posts(array(
-                'numberposts' => -1,
-                'category_name'    => "soft_toys",
-                'orderby'     => 'date',
-                'order'       => 'ASC',
-                'post_type'   => 'post',
-                'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                $posts = get_posts(array(
+                    'numberposts' => -1,
+                    'category_name'    => "soft_toys",
+                    'orderby'     => 'date',
+                    'order'       => 'ASC',
+                    'post_type'   => 'post',
+                    'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
             ));
 
             foreach ($posts as $post) {
                 setup_postdata($post);
             ?>
-                <div class="toys__item" style="background-image: url('<?php
+                <div class="toys__item" style="background-image: url(<?php
                                                                         if (has_post_thumbnail()) {
                                                                             the_post_thumbnail_url();
                                                                         } else {
                                                                             echo get_template_directory_uri() . "/assets/img/not-found.jpg";
                                                                         }
-                                                                        ?>')">
+                                                                        ?>)">
                     <div class="toys__item-info">
                         <div class="toys__item-title"><?php the_title(); ?></div>
                         <div class="toys__item-descr">
@@ -156,13 +159,13 @@
             foreach ($posts as $post) {
                 setup_postdata($post);
             ?>
-                <div class="toys__item" style="background-image: url('<?php
-                                                                        if (has_post_thumbnail()) {
-                                                                            the_post_thumbnail_url();
-                                                                        } else {
-                                                                            echo get_template_directory_uri() . "/assets/img/not-found.jpg";
-                                                                        }
-                                                                        ?>')">
+                <div class="toys__item" style="background-image: url(<?php
+                    if (has_post_thumbnail()) {
+                        the_post_thumbnail_url();
+                    } else {
+                        echo get_template_directory_uri() . "/assets/img/not-found.jpg";
+                    }
+                    ?>)">
                     <div class="toys__item-info">
                         <div class="toys__item-title"><?php the_title(); ?></div>
                         <div class="toys__item-descr">
@@ -391,16 +394,7 @@
             <div class="col-md-6">
                 <div class="title contacts__minititle">Оставьте ваш отзыв</div>
                 <form action="#" class="contacts__feed">
-                    <label for="feedname">
-                        Ваше имя <span>*</span>
-                    </label>
-                    <input required type="text" id="feedname" name="feedname">
-
-                    <label for="feedtext">
-                        Ваш отзыв <span>*</span>
-                    </label>
-                    <textarea required name="feedtext" id="feedtext"></textarea>
-                    <button class="minibutton">Отправить</button>
+                    <?php echo do_shortcode( '[contact-form-7 id="167" title="Форма отзывов"]' ) ?>
 
                     <svg class="lds-spinner" width="65px" height="65px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;">
                         <g transform="rotate(0 50 50)">
@@ -487,7 +481,6 @@
                         <g></g>
                         <g></g>
                     </svg>
-
 
                     <svg class="reject ldt-bounce-in " xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="圖層_1" x="0px" y="0px" viewBox="0 0 100 100" style="transform-origin: 50px 50px 0px; width: 40px;" xml:space="preserve">
                         <g style="transform-origin: 50px 50px 0px;">
