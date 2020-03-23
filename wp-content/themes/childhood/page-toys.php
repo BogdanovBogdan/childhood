@@ -6,7 +6,11 @@
 
 <div class="toys" id="toys">
     <div class="container">
-        <h2 class="subtitle">Мягкие игрушки</h2>
+        <h2 class="subtitle"><a href="<?php 
+            $category_id = get_cat_ID( 'Мягкие игрушки' );
+            echo get_category_link( $category_id );
+        ?>
+        ">Мягкие игрушки</a></h2>
         <div class="toys__wrapper">
 
             <?php
@@ -45,7 +49,11 @@
 
         </div>
 
-        <h2 class="subtitle">Развивающие игрушки</h2>
+        <h2 class="subtitle"><a href="<?php 
+            $category_id = get_cat_ID( 'Развивающие игрушки' );
+            echo get_category_link( $category_id );
+        ?>
+        ">Развивающие игрушки</a></h2>
         <div class="toys__wrapper">
 
             <?php
